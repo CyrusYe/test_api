@@ -1,6 +1,7 @@
 name: Scheduled Python Script
 
 on:
+  workflow_dispatch:  # 可以手動觸發
   schedule:
     # 使用 cron 表達式設定時間，這裡是每天的凌晨 1 點 (UTC)
     - cron: '*/3 * * * *'
