@@ -1,0 +1,31 @@
+name: Scheduled Python Script
+
+on:
+  schedule:
+    # 使用 cron 表達式設定時間，這裡是每天的凌晨 1 點 (UTC)
+    - cron: '*/3 * * * *'
+
+jobs:
+  run-python-script:
+    runs-on: ubuntu-latest  # 使用最新的 Ubuntu 系統運行測試
+
+    steps:
+      # 第一步，檢出代碼
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      # 第二步，設置 Python 環境
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.13.1'  # 你可以根據需要選擇 Python 版本
+
+      # 第三步，安裝依賴（如有 requirements.txt）
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt  # 安裝依賴（如果有）
+
+      # 第四步，運行你的 Python 腳本
+      - name: Run Python script
+        run: |
+          python test_pageinfo.py  # 替換成你實際要運行的 Python 腳本
