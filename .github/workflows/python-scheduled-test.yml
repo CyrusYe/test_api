@@ -18,7 +18,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.13.1'  # 你可以根據需要選擇 Python 版本
+          python-version: '3.9'  # 你可以根據需要選擇 Python 版本
 
       # 第三步，安裝依賴（如有 requirements.txt）
       - name: Install dependencies
